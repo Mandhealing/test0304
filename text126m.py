@@ -10,6 +10,9 @@ driver.get('https://music.163.com/')
 driver.implicitly_wait(10)
 #sleep(5)
 
+main_windows = driver.current_window_handle
+print(main_windows)
+
 
 #点击登录按钮
 driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[1]/a').click()
@@ -49,23 +52,35 @@ login_log = driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/div[1]/di
 login_log.click()
 #sleep(5)
 
+all_windows = driver.window_handles
+print(all_windows)
+
+for handle in all_windows:
+    if handle != main_windows:
+        driver.switch_to.window(handle)
+
+
+register_windows = driver.current_window_handle
+print(register_windows)
+
 #签到
-#day_check = driver.find_element_by_xpath("//div[@class='f-cb']/div/div/a")
-#day_check = driver.find_element_by_xpath("/html/body/div[4]/div[2]/div[1]/div/div/div/a")
-#day_check.click()
+day_check = driver.find_element_by_xpath("//div[@class='f-cb']/div/div/a")
+day_check.click()
+day_check = driver.find_element_by_xpath("/html/body/div[4]/div[2]/div[1]/div/div/div/a")
+day_check.click()
 #sleep(2)
 
-for i in handles:
-    if currentWin == i:
-        continue
-    else:
+#for i in handles:
+    #if currentWin == i:
+        #continue
+    #else:
         #将driver与新的页面绑定起来
-        driver = driver.switch_to.window(i)
+        #driver = driver.switch_to.window(i)
 
 #进入每日推荐
-day_good = driver.find_element_by_xpath("//p[@class ='dec']/a[@title='每日歌曲推荐']")
+#day_good = driver.find_element_by_xpath("//p[@class ='dec']/a[@title='每日歌曲推荐']")
 #ActionChains(driver).move_to_element(day_good).perform()
-day_good.click()
+#day_good.click()
 
 
 #
