@@ -3,7 +3,7 @@ from time import sleep
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-#打开浏览器并进入‘网易云‘
+#打开浏览器并进入‘网易云音乐'
 driver = webdriver.Chrome()       
 driver.maximize_window()
 driver.get('https://music.163.com/')
