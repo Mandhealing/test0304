@@ -5,6 +5,15 @@ import time
 import os
 
 
+file_name = "myaccount.txt"
+dataset = []
+file = open(file_name, mode='r')
+for line in file:
+    line = line.split()
+    dataset.append(line)
+
+
+
 #list_name = input('今日歌单名')
 now_day = time.strftime("%Y/%m/%d")
 list_name = '每日歌单推荐---' + now_day
@@ -34,12 +43,12 @@ stepto_login.click()
 #录入用户名，密码
 send_id = driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/div[1]/div[1]/input')
 send_id.clear()
-send_id.send_keys('wxlbuy@126.com')
+send_id.send_keys(dataset[0])
 
 
 send_pw = driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/div[1]/div[2]/input')
 send_pw.clear()
-send_pw.send_keys('Wxl880615')
+send_pw.send_keys(dataset[1])
 
 
 #点击登录按钮完成登录
@@ -80,7 +89,7 @@ create_newlist2.click()
 
 
 
-# 退出IE浏览器
+#退出IE浏览器
 #def tearDown(self):
         #self.driver.quit()
 
