@@ -7,6 +7,7 @@ import os
 
 file_name = "myaccount.txt"
 dataset = []
+
 file = open(file_name, mode='r')
 for line in file:
     line = line.split()
@@ -19,7 +20,7 @@ now_day = time.strftime("%Y/%m/%d")
 list_name = '每日歌单推荐---' + now_day
 
 
-#打开浏览器并进入‘网易云音乐'11111
+#打开浏览器并进入‘网易云音乐'
 driver = webdriver.Chrome()       
 driver.maximize_window()
 driver.get('https://music.163.com/')
