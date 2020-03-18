@@ -91,11 +91,5 @@ create_newlist2.click()
 
 
 #退出IE浏览器
-#def tearDown(self):
-        #self.driver.quit()
-
-
-
-
-
-
+def tearDown(self):
+        self.driver.quit()
